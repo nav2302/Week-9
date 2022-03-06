@@ -32,11 +32,11 @@ public class ItemController {
 
 	@GetMapping(value = { "", "/" })
 	@ResponseStatus(HttpStatus.OK)
-	public @NotNull Iterable<Item> getAllItems() {
+	public @NotNull ResponseEntity<Iterable<Item>> getAllItems() {
 
-		Item item = Item.builder().name("Item2").price(100.0).build();
-		itemService.save(item);
-		return itemService.getAllItems();
+//		Item item = Item.builder().name("Item2").price(100.0).build();
+//		itemService.save(item);
+		return new ResponseEntity<>(itemService.getAllItems(), HttpStatus.OK) ;
 	}
 
 	@GetMapping(value = "/{id}")

@@ -56,7 +56,7 @@ public class OrderController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<OrderBillWrapper> sendOrderForSelectedItems(@RequestBody OrderForm form) {
+	public ResponseEntity<OrderBillWrapper> generateBill(@RequestBody OrderForm form) {
 		List<OrderItemDto> formDtos = form.getItemOrders();
 
 		

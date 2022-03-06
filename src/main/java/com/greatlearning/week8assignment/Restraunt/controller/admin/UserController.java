@@ -3,6 +3,7 @@ package com.greatlearning.week8assignment.Restraunt.controller.admin;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class UserController {
 	UserService userService;
 
 	@GetMapping
-	public ResponseEntity<List<UserResponse>> getAllUsers() {
+	public ResponseEntity<Iterable<UserResponse>> getAllUsers() {
 		List<UserResponse> usersResponses = new ArrayList<>();
 		List<User> users = userService.getUsers();
 		if(users != null) {
@@ -75,7 +76,8 @@ public class UserController {
 	}
 
 	@DeleteMapping({ "/{email}" })
-	public ResponseEntity<UserResponse> deleteTodo(@PathVariable("email") String email) {
+	@Transactional
+	public ResponseEntity<UserResponse> deleteUser(@PathVariable("email") String email) {
 		userService.deleteUser(email);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}

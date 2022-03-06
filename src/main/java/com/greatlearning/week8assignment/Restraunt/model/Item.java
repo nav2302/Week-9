@@ -27,7 +27,7 @@ public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id")
-	private long id;
+	private Long id;
 
 	private String name;
 

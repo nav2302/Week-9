@@ -24,11 +24,15 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.greatlearning.week8assignment.Restraunt.controller")).build()
 				.tags(new Tag(ItemController_TAG, "REST APIs related to getting all items and getting items by ID!!!!"))
+				
 				.tags(new Tag(OrderController_TAG, "REST APIs for sending Order for selected Items for User and Getting all Orders for the "
 						+ "current Logged in USER !!!!"))
+				
 				.tags(new Tag(RegisterController_TAG, "Register a USER using below API and also user given urls for LOGIN and LOGOUT : "
 						+ "http://localhost:8080/login and http://localhost:8080/logout     !!!!"))
+				
 				.tags(new Tag(SalesController_TAG, "REST APIs for getting SALES for current day and this MONTH only ADMIN user!!!!"))
+				
 				.tags(new Tag(UserController_TAG, "REST APIs for CRUD ops on USER only ADMIN allowed!!!!"));
 				
 	}
